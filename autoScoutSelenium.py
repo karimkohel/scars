@@ -1,7 +1,6 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.firefox.options import Options
-from selenium.webdriver.support.ui import WebDriverWait
 from selenium.common.exceptions import ElementClickInterceptedException, NoSuchElementException
 import time
 from helpers import Handler
@@ -13,9 +12,9 @@ driver = webdriver.Firefox(options=options)
 handler = Handler("LandRover_RangeRover_velar")
 
 # loop over all pages in the results
-for page_num in range(8, 21):
+for page_num in range(1, 21):
     driver.get(f"https://www.autoscout24.com/lst/land-rover/range-rover-velar?atype=C&desc=0&page={page_num}&search_id=glqh8818ex&sort=standard&source=listpage_pagination&ustate=N%2CU")
-    if page_num == 8:
+    if page_num == 1:
         driver.find_element(By.CLASS_NAME, "_consent-accept_1i5cd_111").click()
     # loop inside each page and get the car pages urls
     time.sleep(1)
