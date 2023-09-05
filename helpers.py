@@ -8,7 +8,7 @@ import os
 
 class Handler():
     def __init__(self, dataDir: str) -> None:
-        self.dataDir = dataDir
+        self.dataDir = "data/" + dataDir
         logging.basicConfig(
             filename=dataDir+'.log',
             level=logging.DEBUG,
@@ -17,8 +17,8 @@ class Handler():
         )
         self.logger = logging.getLogger()
 
-        if not os.path.exists(dataDir):
-            os.mkdir(dataDir)
+        if not os.path.exists(self.dataDir):
+            os.mkdir(self.dataDir)
 
 
     def download_image(self, src: str, fileName: str) -> None:

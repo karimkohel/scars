@@ -5,20 +5,30 @@ from selenium.common.exceptions import ElementClickInterceptedException, NoSuchE
 import time
 from helpers import Handler
 
+"""
+This script is written specifically for autoscout24 car website which entails the coming points:
+- the page number is always maxed out at 20 pages
+- each article has to be fetched again once a navigation event has occurred to avoid a stale element 
+
+"""
+
 # start up driver with options
 options = Options()
 options.page_load_strategy = "normal"
 driver = webdriver.Firefox(options=options)
-handler = Handler("LandRover_RangeRover_velar")
+handler = Handler("LandRover_RangeRover_evoque")
 
 # loop over all pages in the results
 for page_num in range(1, 21):
-    driver.get(f"https://www.autoscout24.com/lst/land-rover/range-rover-velar?atype=C&desc=0&page={page_num}&search_id=glqh8818ex&sort=standard&source=listpage_pagination&ustate=N%2CU")
+    driver.get(f"https://www.autoscout24.com/lst/land-rover/range-rover-evoque?atype=C&desc=0&page={page_num}&search_id=hqds5vysmg&sort=standard&source=listpage_pagination&ustate=N%2CU")
+    print(f"starting page: {page_num}")
     if page_num == 1:
         driver.find_element(By.CLASS_NAME, "_consent-accept_1i5cd_111").click()
+
     # loop inside each page and get the car pages urls
     time.sleep(1)
     articles = driver.find_elements(By.TAG_NAME, 'article')
+
     # get inside each page and maximize the img then download that image and move to the next image until it's done
     for article_num in range(len(articles)):
         try:
