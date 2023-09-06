@@ -8,3 +8,4 @@ the requirements would be separated depending on what you need to do with some g
 - improve saving function to be more generic
 - make every print into a log
 - cleaner error handling
+- unify variable naming conventions

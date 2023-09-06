@@ -16,13 +16,14 @@ This script is written specifically for autoscout24 car website which entails th
 options = Options()
 options.page_load_strategy = "normal"
 driver = webdriver.Firefox(options=options)
-handler = Handler("LandRover_RangeRover_evoque")
+handler = Handler("LandRover_defender")
 
 # loop over all pages in the results
-for page_num in range(1, 21):
-    driver.get(f"https://www.autoscout24.com/lst/land-rover/range-rover-evoque?atype=C&desc=0&page={page_num}&search_id=hqds5vysmg&sort=standard&source=listpage_pagination&ustate=N%2CU")
+starting_page = 4
+for page_num in range(starting_page, 21):
+    driver.get(f"https://www.autoscout24.com/lst/land-rover/defender?atype=C&desc=0&page={page_num}&search_id=11dpshnp6tl&sort=standard&source=listpage_pagination&ustate=N%2CU")
     print(f"starting page: {page_num}")
-    if page_num == 1:
+    if page_num == starting_page:
         driver.find_element(By.CLASS_NAME, "_consent-accept_1i5cd_111").click()
 
     # loop inside each page and get the car pages urls
@@ -30,7 +31,7 @@ for page_num in range(1, 21):
     articles = driver.find_elements(By.TAG_NAME, 'article')
 
     # get inside each page and maximize the img then download that image and move to the next image until it's done
-    for article_num in range(len(articles)):
+    for article_num in range(len(articles)-1):
         try:
             article = driver.find_elements(By.TAG_NAME, 'article')[article_num]
             article.click()
