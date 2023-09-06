@@ -16,12 +16,12 @@ This script is written specifically for autoscout24 car website which entails th
 options = Options()
 options.page_load_strategy = "normal"
 driver = webdriver.Firefox(options=options)
-handler = Handler("LandRover_defender")
+handler = Handler("LandRover_RangeRover_velar")
 
 # loop over all pages in the results
-starting_page = 4
+starting_page = 1
 for page_num in range(starting_page, 21):
-    driver.get(f"https://www.autoscout24.com/lst/land-rover/defender?atype=C&desc=0&page={page_num}&search_id=11dpshnp6tl&sort=standard&source=listpage_pagination&ustate=N%2CU")
+    driver.get(f"https://www.autoscout24.com/lst/land-rover/range-rover-velar?atype=C&desc=0&page={page_num}&search_id=eog99945kq&sort=standard&source=listpage_pagination&ustate=N%2CU")
     print(f"starting page: {page_num}")
     if page_num == starting_page:
         driver.find_element(By.CLASS_NAME, "_consent-accept_1i5cd_111").click()
