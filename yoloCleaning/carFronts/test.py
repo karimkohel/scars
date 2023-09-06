@@ -1,6 +1,5 @@
 import cv2
 from ultralytics import YOLO
-import torch
 
 
 # img = "data/carFrontsProject/images/00aa9b3c-cffd-4da0-b920-ea8d5370168e_a3b4f332-81ec-4572-86c9-9994cc1b347b.jpeg"
