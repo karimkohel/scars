@@ -166,3 +166,4 @@ data/
 runs/
 *.jpeg
 *-*.txt
+dataset/

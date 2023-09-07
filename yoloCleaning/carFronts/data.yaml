@@ -1,6 +1,0 @@
-path: E:\projects\synapse\scars\data\carFrontsProject
-train: images
-val: images
-
-names:
-  0: car_front
