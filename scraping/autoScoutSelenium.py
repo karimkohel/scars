@@ -16,12 +16,12 @@ This script is written specifically for autoscout24 car website which entails th
 options = Options()
 options.page_load_strategy = "normal"
 driver = webdriver.Firefox(options=options)
-handler = Handler("data/LandRover_RangeRover_velar")
+handler = Handler("data/LandRover_defender/raw")
 
 # loop over all pages in the results
 starting_page = 1
 for page_num in range(starting_page, 21):
-    driver.get(f"https://www.autoscout24.com/lst/land-rover/range-rover-velar?atype=C&desc=0&page={page_num}&search_id=eog99945kq&sort=standard&source=listpage_pagination&ustate=N%2CU")
+    driver.get(f"https://www.autoscout24.com/lst/land-rover/defender?atype=C&desc=0&fregfrom=2023&page={page_num}&search_id=8c0kqi4iws&sort=standard&source=listpage_pagination&ustate=N%2CU")
     print(f"starting page: {page_num}")
 
     if page_num == starting_page:
@@ -44,9 +44,9 @@ for page_num in range(starting_page, 21):
         for item in galleryItems:
             imgSrc = item.get_attribute('src')
             imgSrc = imgSrc.replace("/120x90.jpg", "")
-            print(imgSrc)
             if '.jpg' in imgSrc:
                 handler.download_image(imgSrc, imgSrc.split("/")[-1].replace(".jpg", ""))
+                print(imgSrc)
             else:
                 print("wrong img type, not downloading")
         driver.back()
