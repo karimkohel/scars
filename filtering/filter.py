@@ -3,14 +3,19 @@
 - crop images (cars folder, trucks folder)
 - classify in their (in their respective folders don't move)
     - copy accepted ones to new even more inside folder
-"""
-from imagededup.methods import PHash
-import os
-# first remove duplicate images, without insurance.
 
-dataDir = 'data/LandRover_discovery/raw/'
+Note: must locate the car directory in dataDir for now but if successful, should loop over all cars    
+"""
+from dedup.dedup import remove_duplicates
+from crop.cropper import crop_cars, clean_slate
+from oversee.predict import classify_cars
+
+
+dataDir = 'data/LandRover_defender/'
 
 if __name__ == "__main__":
-    phasher = PHash()
-    encodings = phasher.encode_images(image_dir=dataDir)
-    duplicates = phasher.find_duplicates_to_remove(encoding_map=encodings)
+    # remove_duplicates(dataDir)
+    # crop_cars(dataDir)
+    # clean_slate(dataDir)
+    classify_cars(dataDir)
+    print("Done for: ", dataDir)
