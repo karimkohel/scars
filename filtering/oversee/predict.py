@@ -17,8 +17,7 @@ def classify_cars(dataDir: str, classes: list[str] = ["car", "truck"]) -> None:
     """
     for classType in classes:
         try:
-            os.makedirs(dataDir+f"final_{classType}/accepted")
-            os.makedirs(dataDir+f"final_{classType}/rejected")
+            os.makedirs(dataDir+f"final_{classType}_accepted")
         except FileExistsError:
             print(f"Files in final_{classType} already exist!")
             continue
@@ -30,12 +29,12 @@ def classify_cars(dataDir: str, classes: list[str] = ["car", "truck"]) -> None:
 
         for result in results:
             probs = result.probs.top1
-            if probs == 0:
-                shutil.copy(result.path, dataDir+f"final_{classType}/accepted/")
-            elif probs == 1:
-                shutil.copy(result.path, dataDir+f"final_{classType}/rejected/")
-            else:
-                print("Something went wrong when classifying: ", result.path, " with probs:", probs)
+            if probs == 2: # code for car front
+                shutil.copy(result.path, dataDir+f"final_{classType}_accepted/")
+            # elif probs == 1:
+            #     shutil.copy(result.path, dataDir+f"final_{classType}/rejected/")
+            # else:
+            #     print("Something went wrong when classifying: ", result.path, " with probs:", probs)
 
 
 

@@ -13,13 +13,15 @@ def remove_duplicates(dataDir: str) -> None:
     ---
     None
     """
-    dataDir = dataDir + 'raw/'
     phasher = PHash()
     encodings = phasher.encode_images(image_dir=dataDir)
-    duplicates = phasher.find_duplicates_to_remove(encoding_map=encodings, outfile="filtering/dedup/toberemoved.json")
+    duplicates = phasher.find_duplicates_to_remove(encoding_map=encodings)
     for duplicate in duplicates:
         try:
             os.remove(dataDir + duplicate)
         except Exception as e:
             print("Exception in dedup remove loop: ", e)
             print("Skipping image: ", duplicate)
+
+if __name__ == '__main__':
+    remove_duplicates("data/LandRover_defender/final_truck_accepted/")

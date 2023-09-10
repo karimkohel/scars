@@ -18,15 +18,11 @@ options.page_load_strategy = "normal"
 driver = webdriver.Firefox(options=options)
 handler = Handler("data/LandRover_RangeRover_evoque/raw")
 
-# 19, 19
-# 20, 20
-# 21, 21
-# 22, 22
 # 23
 
 starting_page = 1
 for page_num in range(starting_page, 21):
-    driver.get(f"https://www.autoscout24.com/lst/land-rover/range-rover-evoque/re_2020?atype=C&cy=D%2CA%2CB%2CE%2CF%2CI%2CL%2CNL&damaged_listing=exclude&desc=0&page={page_num}&powertype=kw&search_id=1aa3cv1zzwm&sort=standard&source=listpage_pagination&ustate=N%2CU")
+    driver.get(f"https://www.autoscout24.com/lst/land-rover/range-rover-evoque/re_2023?atype=C&cy=D%2CA%2CB%2CE%2CF%2CI%2CL%2CNL&damaged_listing=exclude&desc=0&page={page_num}&powertype=kw&search_id=1aa3cv1zzwm&sort=standard&source=listpage_pagination&ustate=N%2CU")
     print(f"starting page: {page_num}")
 
     if page_num == starting_page:
