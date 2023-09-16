@@ -40,18 +40,12 @@ def classify_cars(dataDir: str, classes: list[str] = ["car", "truck"]) -> None:
 
 if __name__ == "__main__":
     # dataDir = "data/LandRove`r_discovery/"
-    dataDir = "r.jpg"
+    dataDir = "filtering/oversee/test1(3).jpg"
 
-    model = YOLO("filtering/best.pt")
+    model = YOLO("filtering/oversee/runs/classify/train4/weights/best.pt")
     model.to('cuda')
     results = model.predict(source=dataDir)
 
 
     for result in results:
-        probs = result.probs.top1
-        if probs == 0:
-            print("image accepted")
-        elif probs == 1:
-            print("rejected")
-        else:
-            print(probs)
+        print(result.probs)
