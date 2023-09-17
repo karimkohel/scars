@@ -7,7 +7,7 @@ Final data is split into 2 folders, the final cleaned data of around 1000 for ea
 
 
 # requirements
-requirements are gpu related and you should check your drivers and hardware version before installing, other than that it's all fair game and used under python 3.9 
+requirements are gpu related and you should check your drivers and hardware version to cross reference with the torch version in the requirements file before installing, other than that it's all fair game and used under python 3.9 
 > pip install -r requirements.txt
 
 # Scraping
