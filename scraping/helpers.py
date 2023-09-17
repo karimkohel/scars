@@ -3,7 +3,7 @@ from PIL import Image
 import io, os, logging
 
 
-class Handler():
+class ScrapingHandler():
     def __init__(self, dataDir: str) -> None:
         self.dataDir = dataDir
 

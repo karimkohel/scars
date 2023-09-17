@@ -3,7 +3,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.firefox.options import Options
 from selenium.common.exceptions import ElementClickInterceptedException, NoSuchElementException
 import time
-from helpers import Handler
+from helpers import ScrapingHandler
 
 """
 This script is written specifically for autoscout24 car website which entails the coming points:
@@ -16,7 +16,7 @@ This script is written specifically for autoscout24 car website which entails th
 options = Options()
 options.page_load_strategy = "normal"
 driver = webdriver.Firefox(options=options)
-handler = Handler("data/LandRover_RangeRover_Vogue/raw")
+handler = ScrapingHandler("data/LandRover_RangeRover_Vogue/raw")
 
 startingRegistration = 16
 for registrationYear in range(startingRegistration, 24): 
