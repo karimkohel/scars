@@ -15,9 +15,9 @@ the scraping ordeal is broken down to whatever web scraping code you can write f
 
 - Land Rover Defender: 980 image
 - Land Rover Discovery: 800 image
-- Land Rover Range Rover Evoque: 1,150
-- Land Rover Range Rover Velar: 940
-- Land Rover Range Rover Vogue: 850
+- Land Rover Range Rover Evoque: 1,150 image
+- Land Rover Range Rover Velar: 940 image
+- Land Rover Range Rover Vogue: 850 image
 
 ### Web scraping
 The website chosen after careful consideration was [AutoScout24](https://www.autoscout24.com/) as it has over 3000+ entries for each Land Rover car model and multi-view images.
