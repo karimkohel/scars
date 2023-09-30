@@ -20,13 +20,12 @@ if __name__ == "__main__":
 
     for carDir in dataDir:
         # remove duplicates from raw scrapped data
-        #remove_duplicates(carDir+"raw/")
+        remove_duplicates(carDir+"raw/")
 
         # use yolo obj detection to crop out images of cars and trucks
-        #crop_cars(carDir)
+        crop_cars(carDir)
         # remove any unwanted generated folders
-        #clean_slate(carDir)
-
+        clean_slate(carDir)
 
         # use custom trained yolo classification to get only the images we approve of
         classify_cars(carDir)
