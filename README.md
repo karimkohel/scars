@@ -7,11 +7,17 @@ Final data is split into 2 folders, the final cleaned data of around 1000 for ea
 
 
 # requirements
-requirements are gpu related and you should check your drivers and hardware version before installing, other than that it's all fair game and used under python 3.9 
+requirements are gpu related and you should check your drivers and hardware version to cross reference with the torch version in the requirements file before installing, other than that it's all fair game and used under python 3.9 
 > pip install -r requirements.txt
 
 # Scraping
 the scraping ordeal is broken down to whatever web scraping code you can write for your choice of website and a helper class that would help manage the data scraped
+
+- Land Rover Defender: 980 image
+- Land Rover Discovery: 800 image
+- Land Rover Range Rover Evoque: 1,150 image
+- Land Rover Range Rover Velar: 940 image
+- Land Rover Range Rover Vogue: 850 image
 
 ### Web scraping
 The website chosen after careful consideration was [AutoScout24](https://www.autoscout24.com/) as it has over 3000+ entries for each Land Rover car model and multi-view images.
