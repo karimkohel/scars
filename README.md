@@ -4,6 +4,11 @@ scarping cars is a pipeline to fetch and process car image data for our private 
 # Data Report
 Final data is split into 2 folders, the final cleaned data of around 1000 for each car model, and the questionable set of data for each model that is images that are not 100% perfect and are taken from the front of the car but leaning towards one side more than the center
 
+- Land Rover Defender: 980 image
+- Land Rover Discovery: 800 image
+- Land Rover Range Rover Evoque: 1,150 image
+- Land Rover Range Rover Velar: 940 image
+- Land Rover Range Rover Vogue: 850 image
 
 
 # requirements
@@ -13,11 +18,6 @@ requirements are gpu related and you should check your drivers and hardware vers
 # Scraping
 the scraping ordeal is broken down to whatever web scraping code you can write for your choice of website and a helper class that would help manage the data scraped
 
-- Land Rover Defender: 980 image
-- Land Rover Discovery: 800 image
-- Land Rover Range Rover Evoque: 1,150 image
-- Land Rover Range Rover Velar: 940 image
-- Land Rover Range Rover Vogue: 850 image
 
 ### Web scraping
 The website chosen after careful consideration was [AutoScout24](https://www.autoscout24.com/) as it has over 3000+ entries for each Land Rover car model and multi-view images.
