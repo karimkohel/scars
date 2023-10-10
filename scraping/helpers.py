@@ -1,10 +1,24 @@
+"""
+The helper class module for simplifying web scrapping.
+
+(this module should have included logging but i was too burnt out too add it, it was a simple logging class implementation away.)
+"""
+
 import requests
 from PIL import Image
 import io, os, logging
 
 
+
 class ScrapingHandler():
+    """Helper class that simplifies the scrapping process by handling directory, file downloads and file duplication
+    """
     def __init__(self, dataDir: str) -> None:
+        """
+        INPUT
+        ---
+        dataDir: required, directory to place scraped data or compare new data being scraped with duplicates already downloaded
+        """
         self.dataDir = dataDir
 
         if os.path.exists(self.dataDir):
@@ -15,6 +29,15 @@ class ScrapingHandler():
 
 
     def download_image(self, src: str, fileName: str) -> None:
+        """
+        helper method that would download the requested image and place it in the appropriate place after checking if it's not already there.
+
+        INPUT:
+        ---
+        src: required, source url for the image requested
+
+        fileName: required, the unique file name for the file to be saved with and checked against already downloaded files
+        """
         img_file_name = fileName  + '.jpeg'
         img_path = self.dataDir + '/' + img_file_name
 

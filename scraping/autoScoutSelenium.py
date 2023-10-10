@@ -1,3 +1,9 @@
+"""
+This script is written specifically for autoscout24 car website which entails the coming points:
+- the page number is always maxed out at 20 pages
+- each article has to be fetched again once a navigation event has occurred to avoid a stale element
+- the registration year and page number should be placed in the link in only the specified format
+"""
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.firefox.options import Options
@@ -5,23 +11,21 @@ from selenium.common.exceptions import ElementClickInterceptedException, NoSuchE
 import time
 from helpers import ScrapingHandler
 
-"""
-This script is written specifically for autoscout24 car website which entails the coming points:
-- the page number is always maxed out at 20 pages
-- each article has to be fetched again once a navigation event has occurred to avoid a stale element 
-
-"""
 
 # start up driver with options
 options = Options()
 options.page_load_strategy = "normal"
 driver = webdriver.Firefox(options=options)
+
+# TODO: add your data location here
 handler = ScrapingHandler("data/LandRover_RangeRover_Vogue/raw")
 
-startingRegistration = 16
+# this is the starting registration year to scrap from, then it will loop until the last possible year (2023)
+startingRegistration = 16 # starting year if for any reason the scrapping stopped, here you can start again from whatever year you like
 for registrationYear in range(startingRegistration, 24): 
-    starting_page = 1
+    starting_page = 1 # starting page if for any reason the scrapping stopped, here you can start again from whatever page you like
     for page_num in range(starting_page, 21):
+        # TODO: add your link here
         driver.get(f"https://www.autoscout24.com/lst/land-rover/range-rover/re_20{registrationYear}?atype=C&cy=D%2CA%2CB%2CE%2CF%2CI%2CL%2CNL&damaged_listing=exclude&desc=0&page={page_num}&powertype=kw&search_id=1g082rrirkt&sort=standard&source=listpage_pagination&ustate=N%2CU")
         print(f"starting page: {page_num}, on year: {registrationYear}")
 

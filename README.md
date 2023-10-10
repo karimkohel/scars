@@ -15,6 +15,24 @@ Final data is split into 2 folders, the final cleaned data of around 1000 for ea
 requirements are gpu related and you should check your drivers and hardware version to cross reference with the torch version in the requirements file before installing, other than that it's all fair game and used under python 3.9 
 > pip install -r requirements.txt
 
+
+
+# How to run
+everything should be ever run from the root project directory, the steps are as follows:
+
+Obviously after installing the [requirements](#requirements)
+
+- to run the main scrapping script at /scraping/autoScoutSelenium.py
+  - open the script and edit the lines commented on with #TODO, like the data directory and the wanted link to scrape
+  - the code structure is documented [here](#Web-scraping)
+  - > python scraping/autoScoutSelenium.py
+- to run the cleaning pipeline :
+  - find the main filtering file at /filtering/filter.py and edit the parts commented above with #TODO and edit the data dirs you want to filter
+  - simply run the script from the root directory
+  - > python filtering/filter.py
+
+
+
 # Scraping
 the scraping ordeal is broken down to whatever web scraping code you can write for your choice of website and a helper class that would help manage the data scraped
 

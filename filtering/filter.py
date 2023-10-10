@@ -1,10 +1,9 @@
 """
+The cleaning Pipeline for scrapped images main script, this script relies on other heavily abstracted modules in the filtering directory
 - remove duplicates
 - crop images (cars folder, trucks folder)
 - classify in their (in their respective folders don't move)
     - copy accepted ones to new even more inside folder
-
-Note: must locate the car directory in dataDir for now but if successful, should loop over all cars    
 """
 from dedup.dedup import remove_duplicates
 from crop.cropper import crop_cars, clean_slate
@@ -15,6 +14,8 @@ from oversee.predict import classify_cars
 if __name__ == "__main__":
 
     dataDir = [
+        # TODO: add any number of data directories as you like to be filtered in order
+        # the data directory for each car should include a directory called raw that hosts the raw images
         'data/LandRover_RangeRover_Vogue/'
     ]
 
